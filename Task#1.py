@@ -12,5 +12,5 @@ if (a > 0) and (a < 6):
 elif (a > 5) and (a < 8):
     print("Yes, this is a weekend")
 
-elif (a > 7) and (a < 1):
+else:
     print("There's no such a day in a week")

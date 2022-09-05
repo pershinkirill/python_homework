@@ -5,7 +5,7 @@ n = int(input("Enter the N number: "))
 lst = [1]
 i = 2
 
-while i < (n + 1):
+while i <= n:
     lst.append(lst[i - 2] * i)
     i += 1
 

@@ -9,3 +9,5 @@ print(f"Random list in range from {-n} to {n} {rand_list}")
 
 shuffle(rand_list)
 print(f"Shuffled list - {rand_list}")
+
+

@@ -1,6 +1,7 @@
 # Задайте список из вещественных чисел. Напишите программу, которая найдёт разницу между максимальным и минимальным значением дробной части элементов.
 # Пример: - [1.1, 1.2, 3.1, 5, 10.01] => 0.19
 
+import pandas as pd
 import random
 
 minn = int(input("Please enter the minimum value for the list: "))
@@ -16,6 +17,11 @@ def rand_list(minimum, maximum):
 
 
 lst = rand_list(minn, maxx)
-print(f"The randomly generated list - {lst}")
-print(f"The minimum element - {min(lst)}, the maximum element - {max(lst)}, difference  "
-      f"between min and max - {round(max(lst) - min(lst), 2)}")
+print(f"A randomly generated list - {lst}")
+
+for k in range(len(lst)):
+    lst[k] = round(((lst[k] * 100) % 100) / 100, 2)
+
+print(f"The minimum fractional part - {min(lst)} (element# [{pd.Series(lst).idxmin()}]), "
+      f"the maximum fractional part - {max(lst)} (element# [{pd.Series(lst).idxmax()}]), the difference is "
+      f" - {round(max(lst) - min(lst), 2)}")

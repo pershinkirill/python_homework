@@ -4,6 +4,7 @@
 a = int(input('Please enter a number: '))
 d = input('Please enter the number for accuracy selection : ')
 
+# Because accuracy can be input two ways (d = 4 or d = 0.0001) we have to anticipate this situation
 if float(d) < 1:
     count = 0
     while float(d) < 1:

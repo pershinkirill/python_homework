@@ -13,11 +13,11 @@ for i in range(0, k + 1):
 
 # using numpy generate a polynomial based on our coefficients
 res = numpy.poly1d(coeff)
-print(coeff)
-print(res)
 
 # Creating a .txt and saving the polynomial there
 with open('task#4.txt', 'w') as f:
     f.writelines(str(res))
     f.close()
 
+print(coeff)
+print(res)

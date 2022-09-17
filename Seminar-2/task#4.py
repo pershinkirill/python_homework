@@ -22,3 +22,4 @@ while i < len(text):
     i += 1
 
 print(f"The total product of selected numbers - {total}")
+

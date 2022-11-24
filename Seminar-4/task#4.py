@@ -8,11 +8,25 @@ coeff = []
 
 # generating random list of numbers that will be the polynomial degrees
 for i in range(0, k + 1):
-    n = random.randint(1, 100)
+    n = random.randint(-10, 10)
     coeff.append(n)
 
+res = ''
+for i in range(len(coeff)):
+    if coeff[i] == 0:
+        continue
+    if len(res) > 0 and coeff[i] > 0:
+        res += '+'
+    if i > (k - 1):
+        res += str(coeff[i])
+    elif i == (k - 1):
+        res += str(coeff[i]) + '*x'
+    else:
+        res += str(coeff[i]) + '*x^' + str(k - i)
+res += ' = 0'
+
 # using numpy generate a polynomial based on our coefficients
-res = numpy.poly1d(coeff)
+# res = numpy.poly1d(coeff)
 
 
 # Creating a .txt and saving the polynomial there

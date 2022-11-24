@@ -6,41 +6,40 @@
 # b) Подумайте как наделить бота ""интеллектом""
 
 import random as r
+move = r.getrandbits(1)
 
-def next_move(balance, step):
+
+def bot_move(balance, step):
     return balance % (step + 1)
 
 
-left = 542
-max_take = 128
+left = 121
+max_take = 28
+note = ' Next turn'
 print(f'Initial conditions: Number of sweets: {left}, Max: {max_take}')
 
-note = 'Your turn!'
-my_move = r.getrandbits(1)
-
 while left > 0:
-    if my_move:
-        print(f' {left} sweets left. I take {next_move(left, max_take)}.', end='')
-        left = left - next_move(left, max_take)
-        my_move = False
-
+    if move:
+        bot_takes = bot_move(left, max_take)
+        print(f' {left} sweets left. Computer takes: {bot_takes}')
+        left -= bot_takes
+        move = False
         if left == 0:
-            note = message = 'I win!'
-            print(note)
+            print('Computer win!')
             break
         else:
             print(note)
     else:
-        partner_take = int(input(f' {left} sweets left. Partner takes: '))
-        if partner_take not in range(1, max_take+1):
-            print(f' you have to take form 1 to  {max_take} sweets')
+        player2_take = int(input(f' {left} sweets left. Player takes: '))
+        if player2_take not in range(1, max_take + 1):
+            print(f' You have to take form 1 to  {max_take} sweets')
             continue
-            # partner_take = int(input(f'осталось {left} конфет. Партнер берет конфет: '))
+        left -= player2_take
+        move = True
+        if left == 0:
+            print('You win!')
+            break
         else:
-            left = left - partner_take
-            my_move = True
-            if left == 0:
-                message = 'Partner won'
-                break
+            print(note)
 
 print('Game over!')
